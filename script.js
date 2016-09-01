@@ -39,10 +39,11 @@ var buyPi = function() {
   console.log('In wallet: $' + wallet.sub(piPrice));
   // //add purchased pie to Inventory
   inventory.push(market[i]);
-  console.log(inventory);
+  console.log('Current Inventory:', inventory);
   //update average purchased price
 
   //display on DOM
+
 };
 
 console.log(buyPi());
@@ -59,10 +60,11 @@ var sellPi = function() {
   //remove purchased pie from Inventory
   var removedPi = inventory.shift();
   console.log("removed:", removedPi);
-  console.log(inventory);
+  console.log('Current Inventory:', inventory);
   //update average purchased price
 
   //display on DOM
+  
 };
 console.log(sellPi());
 
