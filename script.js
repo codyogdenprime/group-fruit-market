@@ -46,33 +46,36 @@ var fifteenSecondsTimer = function () {
 	if( programStatus === true ) {
 		// Set a time out to run Change Price again
 		setTimeout( changePrice(), 15000 );
+	}
+};
+
+//generate random price for each pie price
+var calculatePrice = function () {
+	return Number( ( (Math.random() * 9.99) + 0.5 ).toFixed(2) );
+};
+
+var randomNum = function () {
+	var price = calculatePrice();
+	if ( price > 9.99 || price < 0.5 || price === undefined ) {
+		randomNum();
+	} else {
+		return price;
+	}
+	for (var i = 0; i < market.length; i++) {
+		market[i].price = price;
+	}
+};
 
 var start = function () {
-		//generate random price for each pie price
-		var calculatePrice = function () {
-	  return Number( ( (Math.random() * 9.99) + 0.5 ).toFixed(2) );
-	}
 
-	var randomNum = function () {
-	  var price = calculatePrice();
-	  if ( price > 9.99 || price < 0.5 || price === undefined ) {
-	    randomNum();
-	  } else {
-	    return price;
-	  }
-	};
-		for (var i = 0; i < market.length; i++) {
-			market[i].price = price;ben
-		}
-}
 
-console.log( 'randomNum function price output:', randomNum() );
 
-			market[i].price = cost;
-		}
 	// calculatePrice();
   // displayPies();
 };
+
+
+
 
 
 var sellOff = function () {
