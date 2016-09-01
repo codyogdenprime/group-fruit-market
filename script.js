@@ -1,5 +1,7 @@
+
 $(document).ready(function(){
   console.log('script.js sourced');
+
 
 var walletFunc = function () {
 
@@ -20,11 +22,14 @@ var walletFunc = function () {
 	};
 };
 
+
 var i = 0;
+
 
 var wallet = new walletFunc();
 var inventory = []; // User's Inventory ( of objects )
 var programStatus = true;
+
 
 
 var programStatus = true;
@@ -32,6 +37,7 @@ var programStatus = true;
 var running = function () {
 	//timmer that counts down if 5 minutes has elapsed
 };
+
 
 var market = [
 {
@@ -144,6 +150,9 @@ var fifteenSecondsTimer = function () {
 
 
 })//end doc ready
+
+
+
 
 //generate random price for each pie price
 var calculatePrice = function () {
