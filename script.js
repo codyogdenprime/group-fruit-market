@@ -17,13 +17,6 @@ var wallet = new walletFunc();
 var inventory = []; // User's Inventory ( of objects )
 var programStatus = true;
 
-
-var programStatus = true;
-
-var running = function () {
-	//timmer that counts down if 5 minutes has elapsed
-};
-
 var market = [
 {
 	pie: "Apple",
@@ -87,3 +80,43 @@ var sellOff = function () {
 		//compare money spent on pies to ending market price on pies
 	}
 };
+
+
+$(document).ready(function(){
+
+
+  var displayPies = function () {
+    var toDom='#outputDiv';
+    console.log('in displayPies');
+    $(toDom).textContent="";
+    for (var i = 0; i < market.length; i++) {
+      var newHeader= $('<h2 />');
+      var newParagraph=$('<p />');
+      var pic= $('<img />');
+
+
+
+
+
+      newHeader.html(market[i].pie);
+      newParagraph.html(market[i].price);
+      pic.attr('src',market[i].photo);
+
+
+
+      $(toDom).append(newHeader);
+      $(toDom).append(pic);
+      $(toDom).append(newParagraph);
+      console.log(newHeader);
+      console.log(pic);
+      console.log(newParagraph);
+
+    }//for loop
+
+
+  };//displayPies
+  displayPies();
+
+}); //doc ready
+// $('<h2 />')
+// variable.html(string)
