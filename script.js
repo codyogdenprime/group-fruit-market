@@ -1,11 +1,28 @@
 
-console.log('sourced');
-piesArray[strawberryBanana{
-  name:'Strawberry Banana'
-  pic:
-  price:
-}, other];
+var inventory = []; // User's Inventory ( of objects )
 
+var market = [
+{
+	pie: "Apple",
+	price: 1,
+	photo: "http://placehold.it/100"
+}
+];
+
+console.log('sourced');
+
+var wallet = function () {
+	var total = 0;
+	this.add = function ( num ) {
+		total = Number( total + num );
+	};
+	this.sub = function ( num ) {
+		total = Number ( total - num );
+	};
+	this.total = function () {
+		return total;
+	};
+};
 
 var displayPies = function () {
   console.log('in displayPies');
