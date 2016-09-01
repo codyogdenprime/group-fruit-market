@@ -33,10 +33,10 @@ var buyPi = function() {
   var piType = market[i].pie;
   console.log('Pie type:', piType);
   var piPrice = market[i].price;
-  console.log('Pie Price:', piPrice);
+  console.log('Purchase Price: $' + piPrice);
   // //subtract $$$ from wallet
   // wallet(piPrice);
-  console.log(wallet.sub(piPrice));
+  console.log('In wallet: $' +wallet.sub(piPrice));
   // //add purchased pie to Inventory
   inventory.push(market[i]);
   console.log(inventory);
@@ -51,9 +51,11 @@ var sellPi = function() {
   console.log('in sellPi');
   //establish pie type
   var piType = market[i].pie;
+  console.log('Pie type:', piType);
   var piPrice = market[i].price;
+  console.log('Sell Price: $' + piPrice);
   //add $$$ to wallet
-  console.log(wallet.add(piPrice));
+  console.log('In wallet: $' + wallet.add(piPrice));
   //remove purchased pie from Inventory
   var removedPi = inventory.shift();
   console.log("removed:", removedPi);
