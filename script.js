@@ -83,7 +83,7 @@ var fifteenSecondsTimer = function () {
 
 
   };//end displayPies
-  
+
   var buyPi = function() {
     console.log('in buyPi');
     //establish pie type and price
@@ -133,5 +133,3 @@ var fifteenSecondsTimer = function () {
 
 
 })//end doc ready
-// $('<h2 />')
-// variable.html(string)
