@@ -21,37 +21,33 @@ $(document).ready(function(){
   		return total;
   	};
   };
-
+    //displays Pies, just like the name says
   var displayPies = function () {
     var toDom='#outputDiv';
     console.log('in displayPies');
     $(toDom).textContent="";
     for (var i = 0; i < market.length; i++) {
+        //create html elements
       var newHeader= $('<h2 />');
       var newParagraph=$('<p />');
       var pic= $('<img />');
-
-
-
-
-
+        //add object elements to html
       newHeader.html(market[i].pie);
       newParagraph.html(market[i].price);
       pic.attr('src',market[i].photo);
-
-
-
+        //append objects to Dom
       $(toDom).append(newHeader);
       $(toDom).append(pic);
       $(toDom).append(newParagraph);
-      console.log(newHeader);
-      console.log(pic);
-      console.log(newParagraph);
-
     }//for loop
-
-
   };//displayPies
+
+  var displayWallet= function(){
+      $(".pie-" + market[i].pie ).html( market[i].price );
+    }//for loop
+  };//displayWallet
+
+var displayWallet
   displayPies();
 
 })//doc ready
