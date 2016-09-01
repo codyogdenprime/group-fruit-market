@@ -115,8 +115,56 @@ $(document).ready(function(){
 
 
   };//displayPies
-  displayPies();
+  // displayPies();
 
+  var i = 0;
+  
+  var buyPi = function() {
+    console.log('in buyPi');
+    //establish pie type and price
+    var piType = market[i].pie;
+    console.log('Pie type:', piType);
+    var piPrice = market[i].price;
+    console.log('Purchase Price: $' + piPrice);
+    // //subtract $$$ from wallet
+    // wallet(piPrice);
+    console.log('In wallet: $' + wallet.sub(piPrice));
+    // //add purchased pie to Inventory
+    inventory.push(market[i]);
+    console.log('Current Inventory:', inventory);
+    //update average purchased price
+    var avgPrice = inventory[i].price / inventory.length;
+    console.log('Average Purchased Price: $' + avgPrice);
+    //display on DOM
+    displayPies();
+  };
+
+  console.log(buyPi());
+
+  var sellPi = function() {
+    console.log('in sellPi');
+    //establish pie type
+    var piType = market[i].pie;
+    console.log('Pie type:', piType);
+    var piPrice = market[i].price;
+    console.log('Sell Price: $' + piPrice);
+    //add $$$ to wallet
+    console.log('In wallet: $' + wallet.add(piPrice));
+    //remove purchased pie from Inventory
+    var removedPi = inventory.shift();
+    console.log("removed:", removedPi);
+    console.log('Current Inventory:', inventory);
+    //update average purchased price
+    if(inventory.length == 0){
+      console.log('Nothing In Inventory');
+    }else{
+    var avgPrice = inventory[i].price / inventory.length;
+    console.log('Average Purchased Price: $' + avgPrice);
+    //display on DOM
+    displayPies();
+    }
+  };
+  console.log(sellPi());
 }); //doc ready
 // $('<h2 />')
 // variable.html(string)
