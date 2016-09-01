@@ -15,7 +15,6 @@ var wallet = new walletFunc();
 var inventory = []; // User's Inventory ( of objects )
 var programStatus = true;
 
-
 var market = [
 {
 	pie: "Apple",
@@ -25,16 +24,18 @@ var market = [
 ];
 
 var i = 0;
+
 var buyPi = function() {
   console.log('in buyPi');
-  //establish pie type
+  //establish pie type and price
   var piType = market[i].pie;
+  var piPrice = market[i].price;
   console.log('Pie type:', piType);
   // //subtract $$$ from wallet
-  total = wallet.sub(market[i].price);
-  console.log(total);
+  
   // //add purchased pie to Inventory
-  // inventory.push(market[i]);
+  inventory.push(market[i]);
+  console.log(inventory);
   //update average purchased price
 
   //display on DOM
@@ -44,7 +45,8 @@ console.log(buyPi());
 
 var sellPi = function() {
   //establish pie type
-
+  var piType = market[i].pie;
+  var piPrice = market[i].price;
   //add $$$ to wallet
 
   //remove purchased pie from Inventory
@@ -52,7 +54,7 @@ var sellPi = function() {
   //update average purchased price
 
   //display on DOM
-
+};
 
 // Five minute timer function
 // Run this function when the program starts
