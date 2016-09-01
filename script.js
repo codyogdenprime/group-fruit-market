@@ -1,13 +1,15 @@
 var walletFunc = function () {
-	var total = 0;
+	var totalFunds = 100;
 	this.add = function ( num ) {
-		total = Number( total + num );
+		totalFunds = Number( totalFunds + num );
+		return totalFunds;
 	};
 	this.sub = function ( num ) {
-		total = Number ( total - num );
+		totalFunds = Number ( totalFunds - num );
+		return totalFunds;
 	};
 	this.total = function () {
-		return total;
+		return totalFunds;
 	};
 };
 
