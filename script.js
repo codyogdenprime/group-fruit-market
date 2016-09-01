@@ -172,7 +172,7 @@ var start = function () {
 
 
 
-
+/////
 
 var sellOff = function () {
 	if (running === true) {
