@@ -1,4 +1,4 @@
-var wallet = function () {
+var walletFunc = function () {
 	var total = 0;
 	this.add = function ( num ) {
 		total = Number( total + num );
@@ -11,7 +11,10 @@ var wallet = function () {
 	};
 };
 
+var wallet = new walletFunc();
 var inventory = []; // User's Inventory ( of objects )
+var programStatus = true;
+
 
 var programStatus = true;
 
