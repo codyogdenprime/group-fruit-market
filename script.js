@@ -36,7 +36,7 @@ var buyPi = function() {
   console.log('Purchase Price: $' + piPrice);
   // //subtract $$$ from wallet
   // wallet(piPrice);
-  console.log('In wallet: $' +wallet.sub(piPrice));
+  console.log('In wallet: $' + wallet.sub(piPrice));
   // //add purchased pie to Inventory
   inventory.push(market[i]);
   console.log(inventory);
