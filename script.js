@@ -1,13 +1,15 @@
 var walletFunc = function () {
-	var total = 0;
+  var totalFunds = 100;
 	this.add = function ( num ) {
-		total = Number( total + num );
+		totalFunds = Number( totalFunds + num );
+		return totalFunds;
 	};
 	this.sub = function ( num ) {
-		total = Number ( total - num );
+		totalFunds = Number ( totalFunds - num );
+		return totalFunds;
 	};
 	this.total = function () {
-		return total;
+		return totalFunds;
 	};
 };
 
@@ -29,10 +31,12 @@ var buyPi = function() {
   console.log('in buyPi');
   //establish pie type and price
   var piType = market[i].pie;
-  var piPrice = market[i].price;
   console.log('Pie type:', piType);
+  var piPrice = market[i].price;
+  console.log('Pie Price:', piPrice);
   // //subtract $$$ from wallet
-  
+  // wallet(piPrice);
+  console.log(wallet.sub(piPrice));
   // //add purchased pie to Inventory
   inventory.push(market[i]);
   console.log(inventory);
@@ -44,17 +48,21 @@ var buyPi = function() {
 console.log(buyPi());
 
 var sellPi = function() {
+  console.log('in sellPi');
   //establish pie type
   var piType = market[i].pie;
   var piPrice = market[i].price;
   //add $$$ to wallet
-
+  console.log(wallet.add(piPrice));
   //remove purchased pie from Inventory
-
+  var removedPi = inventory.shift();
+  console.log("removed:", removedPi);
+  console.log(inventory);
   //update average purchased price
 
   //display on DOM
 };
+console.log(sellPi());
 
 // Five minute timer function
 // Run this function when the program starts
