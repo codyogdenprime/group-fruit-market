@@ -1,45 +1,59 @@
 
 var inventory = []; // User's Inventory ( of objects )
 
-var market = [
-{
-	pie: "Apple",
-	price: 1,
-	photo: "http://placehold.it/100"
-}
-];
+var market = [ { pie: "Apple", price: 1, photo: "http://placehold.it/100" },{ pie: "Apple", price: 1, photo: "http://placehold.it/100" },{ pie: "Apple", price: 1, photo: "http://placehold.it/100" } ];
 
 console.log('sourced');
 
-var wallet = function () {
-	var total = 0;
-	this.add = function ( num ) {
-		total = Number( total + num );
-	};
-	this.sub = function ( num ) {
-		total = Number ( total - num );
-	};
-	this.total = function () {
-		return total;
-	};
-};
 
-var displayPies = function () {
-  console.log('in displayPies');
-  console.log('in local array',piesArray);
-  $('#outputDiv p').textContent="";
-  for (var i = 0; i < piesArray.length; i++) {
-    var newHeader= document.createElement('h2');
-    var newParagraph=document.createElement('p')
-
-    newHeader.textContent= piesArray[i].first_name+' '+piesArray[i].last_name;
-    newParagraph.textContent= piesArray[i].info;
-
-    $('#outputDiv').append(newHeader);
-    $('#outputDiv').append(newParagraph);
-
-  }//for loop
+$(document).ready(function(){
 
 
-};//displayPies
-displayPies();
+  var wallet = function () {
+  	var total = 0;
+  	this.add = function ( num ) {
+  		total = Number( total + num );
+  	};
+  	this.sub = function ( num ) {
+  		total = Number ( total - num );
+  	};
+  	this.total = function () {
+  		return total;
+  	};
+  };
+
+  var displayPies = function () {
+    var toDom='#outputDiv';
+    console.log('in displayPies');
+    $(toDom).textContent="";
+    for (var i = 0; i < market.length; i++) {
+      var newHeader= $('<h2 />');
+      var newParagraph=$('<p />');
+      var pic= $('<img />');
+
+
+
+
+
+      newHeader.html(market[i].pie);
+      newParagraph.html(market[i].price);
+      pic.attr('src',market[i].photo);
+
+
+
+      $(toDom).append(newHeader);
+      $(toDom).append(pic);
+      $(toDom).append(newParagraph);
+      console.log(newHeader);
+      console.log(pic);
+      console.log(newParagraph);
+
+    }//for loop
+
+
+  };//displayPies
+  displayPies();
+
+})//doc ready
+// $('<h2 />')
+// variable.html(string)
