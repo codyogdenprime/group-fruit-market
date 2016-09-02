@@ -193,7 +193,7 @@ $( document ).ready( function () {
 
 	} );
 
-	fifteenSecondsTimer();
+	//fifteenSecondsTimer();
 
 });
 
