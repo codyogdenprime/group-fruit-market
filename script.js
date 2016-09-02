@@ -28,7 +28,24 @@ var market = [
 	pie: "Apple",
 	price: 1,
 	photo: "http://placehold.it/100"
+
+
+},
+{
+	pie: "Apple",
+	price: 1,
+	photo: "http://placehold.it/100"
+
+
+},
+{
+	pie: "strawberry",
+	price: 1,
+	photo: "http://placehold.it/100"
+
+
 }
+
 ];
 
 // Five minute timer function
@@ -96,15 +113,22 @@ var start = function () {
 
 
 
-var sellOff = function () {
-	if (running === true) {
-		//update market close prices
-	} else {
+// var sellOff = function () {
+// 	if (running === true) {
+// 		//update market close prices
+// 		otherVariable
+// 		for (var i = 0; i < market.length; i++) {
+// 			if otherVariable.pie ==market[i].pie{
+// 				totalFunds+= market[i].price
+//
+// 			}//if
+// 		}//for loop
+
 		//alert shopper the market is closed
 		//empty pies from bag
 		//compare money spent on pies to ending market price on pies
-	}
-};
+
+// };
 
 
 $(document).ready(function(){
@@ -118,17 +142,9 @@ $(document).ready(function(){
       var newHeader= $('<h2 />');
       var newParagraph=$('<p />');
       var pic= $('<img />');
-
-
-
-
-
       newHeader.html(market[i].pie);
       newParagraph.html(market[i].price);
       pic.attr('src',market[i].photo);
-
-
-
       $(toDom).append(newHeader);
       $(toDom).append(pic);
       $(toDom).append(newParagraph);
@@ -137,10 +153,38 @@ $(document).ready(function(){
       console.log(newParagraph);
 
     }//for loop
+		var numApple=0;
+		var numStraw=0;
+		var numLemon=0;
+		var numPump=0;
+for (var i = 0; i < inventory.length; i++) {
+console.log('inside avg price for loop');
+	switch (inventory[i].pie) {
+		case 'apple':
+				numApple++;
+		case 'strawberry':
+			numStraw++
+		case 'lemon':
+			numLemon++
+		case 'pumpkin':
+			numPump++
+		default:
 
+		$(toDom).append(numPump.html(numPump));
+		$(toDom).append(numLemon.html(numLemon));
+		$(toDom).append(numStraw.html(numStraw));
+		$(toDom).append(numApple.html(numApple));
+
+		console.log(numPump);
+		console.log('default statement');
+
+	}//switch
+
+
+}//for loop
 
   };//displayPies
-  // displayPies();
+  displayPies();
 
   // Whenever a button with class .buy is clicked
   $("button.buy").on( "click", function () {
