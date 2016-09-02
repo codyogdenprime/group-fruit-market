@@ -25,27 +25,21 @@ var programStatus = true;
 
 var market = [
 {
-	pie: "Apple",
-	price: 1,
-	photo: "http://placehold.it/100"
-
-
+	pie: "lemon",
+	price: 1
 },
 {
-	pie: "Apple",
-	price: 1,
-	photo: "http://placehold.it/100"
-
-
+	pie: "pumpkin",
+	price: 1
 },
 {
-	pie: "strawberry",
-	price: 1,
-	photo: "http://placehold.it/100"
-
-
+	pie: "berry",
+	price: 1
+},
+{
+  pie: "apple",
+  price: 1
 }
-
 ];
 
 // Five minute timer function
@@ -71,8 +65,10 @@ var calculateInitialPrice = function () {
   if ( currentPrice > 9.99 || currentPrice < 0.5 || currentPrice === undefined ) {
     for (var i = 0; i < market[i].length; i++) {
       market[i].price = currentPrice;
+      console.log( "Current Market Price:", market[i].price );
+      console.log( "New Market Price:", currentPrice );
       return true;
-};
+} } };
 
 // Get New Price Functio n
 var getNewPrice = function ( ) {
@@ -85,7 +81,7 @@ var getNewPrice = function ( ) {
 
   // Check that new price absolute value is within 50 cents and meets
   // market price constraints
-  if( abs <= .5 && newPrice <= 9.99 && newPrice >= 0 ) {
+  if( abs <= 0.5 && newPrice <= 9.99 && newPrice >= 0 ) {
 
   	console.log( "New Price:", newPrice );
 
@@ -101,12 +97,14 @@ var getNewPrice = function ( ) {
   }
 };
 
-var start = function () {
+var runProgram = function () {
 
+  fiveMinuteTimer();
 
+  fifteenSecondsTimer();
 
-	// calculatePrice();
-  // displayPies();
+  calculateInitialPrice();
+
 };
 
 
@@ -133,6 +131,12 @@ var start = function () {
 
 $(document).ready(function(){
 
+  $("#startBtn").on("click", function() {
+    console.log( "Start Button Clicked" );
+
+    runProgram();
+  });
+
 
   var displayPies = function () {
     var toDom='#outputDiv';
@@ -157,28 +161,29 @@ $(document).ready(function(){
 		var numStraw=0;
 		var numLemon=0;
 		var numPump=0;
-for (var i = 0; i < inventory.length; i++) {
-console.log('inside avg price for loop');
-	switch (inventory[i].pie) {
-		case 'apple':
-				numApple++;
-		case 'strawberry':
-			numStraw++
-		case 'lemon':
-			numLemon++
-		case 'pumpkin':
-			numPump++
-		default:
+for (var j = 0; j < inventory.length; j++) {
+  console.log('inside avg price for loop');
+  
+  	switch (inventory[j].pie) {
+  		case 'apple':
+  				numApple++;
+  		case 'berry':
+  			numStraw++
+  		case 'lemon':
+  			numLemon++
+  		case 'pumpkin':
+  			numPump++
+  		default:
 
-		$(toDom).append(numPump.html(numPump));
-		$(toDom).append(numLemon.html(numLemon));
-		$(toDom).append(numStraw.html(numStraw));
-		$(toDom).append(numApple.html(numApple));
+  		$(toDom).append(numPump.html(numPump));
+  		$(toDom).append(numLemon.html(numLemon));
+  		$(toDom).append(numStraw.html(numStraw));
+  		$(toDom).append(numApple.html(numApple));
 
-		console.log(numPump);
-		console.log('default statement');
+  		console.log(numPump);
+  		console.log('default statement');
 
-	}//switch
+  	}//switch
 
 
 }//for loop

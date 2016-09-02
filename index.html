@@ -20,15 +20,7 @@
     <!-- jQuery -->
     <script src="vendors/jquery.min.js"></script>
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="vendors/bootstrap.min.js"></script>
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <script src="script.js"></script>
 
 </head>
 
@@ -66,7 +58,7 @@
             <h1>Irrational Market</h1>
             <div class="inheader">
             <p>Buy low, sell pi!</p>
-          <p><a class="btn btn-primary btn-large">Start Simulation</a></p>
+          <p><a class="btn btn-primary btn-large" id="startBtn">Start Simulation</a></p>
         </div>
         </header>
 
@@ -92,7 +84,7 @@
                         <p>Average Purchase Price: <span id="apple-average"></span></p></p>
                         <p>Amount on Hand:  <span id="apple-amount"></span></p></p>
                         <p>
-                            <a href="#" class="btn btn-primary" class="buy" data-fruit="apple">Buy Now!</a> <a href="#" class="btn btn-danger" class="sell" data-fruit="apple">Sell Now!</a>
+                            <a href="#" class="btn btn-primary class" data-fruit="apple">Buy Now!</a> <a href="#" class="btn btn-danger" class="sell" data-fruit="apple">Sell Now!</a>
                         </p>
                     </div>
                 </div>
@@ -107,7 +99,7 @@
                         <p>Average Purchase Price:</p>
                         <p>Amount on Hand:</p>
                         <p>
-                            <a href="#" class="btn btn-primary" class="buy" data-fruit="lemon">Buy Now!</a> <a href="#" class="btn btn-danger" class="sell" data-fruit="lemon">Sell Now!</a>
+                            <a href="#" class="btn btn-primary buy" data-fruit="lemon">Buy Now!</a> <a href="#" class="btn btn-danger" class="sell" data-fruit="lemon">Sell Now!</a>
                         </p>
                     </div>
                 </div>
@@ -122,7 +114,7 @@
                         <p>Average Purchase Price:</p>
                         <p>Amount on Hand:</p>
                         <p>
-                            <a href="#" class="btn btn-primary" class="buy" data-fruit="pumpkin">Buy Now!</a> <a href="#" class="btn btn-danger" class="sell" data-fruit="pumpkin">Sell Now!</a>
+                            <a href="#" class="btn btn-primary buy" data-fruit="pumpkin">Buy Now!</a> <a href="#" class="btn btn-danger" class="sell" data-fruit="pumpkin">Sell Now!</a>
                         </p>
                     </div>
                 </div>
@@ -137,7 +129,7 @@
                         <p>Average Purchase Price:</p>
                         <p>Amount on Hand:</p>
                         <p>
-                            <a href="#" class="btn btn-primary" class="buy" data-fruit="berry">Buy Now!</a> <a href="#" class="btn btn-danger" class="sell" data-fruit="berry">Sell Now!</a>
+                            <a href="#" class="btn btn-primary buy" data-fruit="berry">Buy Now!</a> <a href="#" class="btn btn-danger" class="sell" data-fruit="berry">Sell Now!</a>
                         </p>
                     </div>
                 </div>
