@@ -197,8 +197,9 @@ $( document ).ready( function () {
 
 });
 
-var countItemInObject = function ( arr, item, search ) {
+// Count the instances of a specific value in a key in a bunch of objects inside an array
+var countItemInObject = function ( arr, key, search ) {
 	return arr.filter(function( obj ){
-		return obj[item] === search;
+		return obj[key] === search;
 	}).length;
 };
