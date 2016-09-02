@@ -107,7 +107,25 @@ var runProgram = function () {
 
 };
 
+// Get the average price of an inventory item
+var getAvgOfInvItem = function ( pieType ) {
+  // Create a total var
+  var total = 0;
 
+  // Create a count var
+  var count = 0;
+
+  // For every item in the inventory
+  for( var item in inventory ) {
+    // search for the specific pie type
+    if( inventory[item].pie === pieType ) {
+      // add its price to the total and count it
+      total += inventory[item].price;
+      count++;
+    }
+  }
+  return Number( total / count );
+};
 
 
 
@@ -136,60 +154,6 @@ $(document).ready(function(){
 
     runProgram();
   });
-
-
-  var displayPies = function () {
-    var toDom='#outputDiv';
-    console.log('in displayPies');
-    $(toDom).textContent="";
-    for (var i = 0; i < market.length; i++) {
-      var newHeader= $('<h2 />');
-      var newParagraph=$('<p />');
-      var pic= $('<img />');
-      newHeader.html(market[i].pie);
-      newParagraph.html(market[i].price);
-      pic.attr('src',market[i].photo);
-      $(toDom).append(newHeader);
-      $(toDom).append(pic);
-      $(toDom).append(newParagraph);
-      console.log(newHeader);
-      console.log(pic);
-      console.log(newParagraph);
-
-    }//for loop
-		var numApple=0;
-		var numStraw=0;
-		var numLemon=0;
-		var numPump=0;
-for (var j = 0; j < inventory.length; j++) {
-  console.log('inside avg price for loop');
-  
-  	switch (inventory[j].pie) {
-  		case 'apple':
-  				numApple++;
-  		case 'berry':
-  			numStraw++
-  		case 'lemon':
-  			numLemon++
-  		case 'pumpkin':
-  			numPump++
-  		default:
-
-  		$(toDom).append(numPump.html(numPump));
-  		$(toDom).append(numLemon.html(numLemon));
-  		$(toDom).append(numStraw.html(numStraw));
-  		$(toDom).append(numApple.html(numApple));
-
-  		console.log(numPump);
-  		console.log('default statement');
-
-  	}//switch
-
-
-}//for loop
-
-  };//displayPies
-  displayPies();
 
   // Whenever a button with class .buy is clicked
   $("button.buy").on( "click", function () {
