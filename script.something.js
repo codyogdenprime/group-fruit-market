@@ -33,6 +33,11 @@ var market = [
 	pie: "Grape",
 	price: 4,
 	photo: "http://placehold.it/100"
+},
+{
+	pie: "Pear",
+	price: 6,
+	photo: "http://placehold.it/100"
 }
 ];
 
@@ -202,4 +207,32 @@ var countItemInObject = function ( arr, key, search ) {
 	return arr.filter(function( obj ){
 		return obj[key] === search;
 	}).length;
+};
+
+
+var givenFruitAverage = function ( fruit ) {
+
+		// Get an array of pieTypes from the market
+		var pieTypes = market.map( function( obj ) {
+			return obj.pie;
+		} );
+
+		// Create empty array to count each type of pie in inventory
+		var pieTypeCount = [];
+
+		console.log( "Pie Types:", pieTypes );
+
+		// For each type of pie
+		for( var i = 0; i < pieTypes.length; i++ ) {
+
+			var pieType = {
+				
+			};
+
+			// Add an object to the pieTypeCount array { pieType: Number }
+			pieTypeCount[pieTypes[i]] = countItemInObject( inventory, "pie", pieTypes[i] );
+
+		}
+
+		// Total Cost of Each Fruit in the Inventory
 };
