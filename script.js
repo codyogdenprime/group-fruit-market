@@ -57,7 +57,7 @@ var calculateInitialPrice = function () {
       return true;
 };
 
-// Get New Price Function
+// Get New Price Functio n
 var getNewPrice = function ( ) {
 
   // Get a new price every time we run the function
