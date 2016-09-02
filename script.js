@@ -123,54 +123,81 @@ $(document).ready(function(){
   };//displayPies
   // displayPies();
 
-  var i = 0;
-  
-  var buyPi = function() {
-    console.log('in buyPi');
-    //establish pie type and price
-    var piType = market[i].pie;
-    console.log('Pie type:', piType);
-    var piPrice = market[i].price;
-    console.log('Purchase Price: $' + piPrice);
-    // //subtract $$$ from wallet
-    // wallet(piPrice);
-    console.log('In wallet: $' + wallet.sub(piPrice));
-    // //add purchased pie to Inventory
-    inventory.push(market[i]);
-    console.log('Current Inventory:', inventory);
-    //update average purchased price
-    var avgPrice = inventory[i].price / inventory.length;
-    console.log('Average Purchased Price: $' + avgPrice);
-    //display on DOM
-    displayPies();
-  };
+  // Whenever a button with class .buy is clicked
+  $("button.buy").on( "click", function () {
 
-  console.log(buyPi());
+    // Get the fruit type from the element's data
+    var fruitType = $( this ).data("fruit");
 
-  var sellPi = function() {
-    console.log('in sellPi');
-    //establish pie type
-    var piType = market[i].pie;
-    console.log('Pie type:', piType);
-    var piPrice = market[i].price;
-    console.log('Sell Price: $' + piPrice);
-    //add $$$ to wallet
-    console.log('In wallet: $' + wallet.add(piPrice));
-    //remove purchased pie from Inventory
-    var removedPi = inventory.shift();
-    console.log("removed:", removedPi);
-    console.log('Current Inventory:', inventory);
-    //update average purchased price
-    if(inventory.length == 0){
-      console.log('Nothing In Inventory');
-    }else{
-    var avgPrice = inventory[i].price / inventory.length;
-    console.log('Average Purchased Price: $' + avgPrice);
-    //display on DOM
-    displayPies();
+    // For every item in the market
+    for( var i = 0; i < market.length; i++ ) {
+
+      // If the market fruit matches the clicked fruit
+      if( market[i].pie === fruitType ) {
+
+        // Subtract the current price of the fruit from the wallet
+        // If that returns true
+        if( wallet.sub( market[i].price ) ) {
+
+          // Create a new inventory object
+          var newInventory = {
+            pie: market[i].pie,
+            price: market[i].price
+          };
+
+          // Push the new object to the inventory
+          inventory.push( newInventory );
+
+          console.log( "Inventory:", inventory );
+
+        } else {
+
+          // Else alert the user there is not enough funding!
+          alert("Not enough funding!");
+
+        }
+
+      }
+
     }
-  };
-  console.log(sellPi());
+
+  } );
+
+  $("button.sell").on( "click", function () {
+
+    // Get the fruit type from the element's data
+    var fruitType = $( this ).data("fruit");
+
+    // Get an array of pieTypes from the market
+    var pieTypes = market.map( function( obj ) {
+      return obj.pie;
+    } );
+
+    // Create empty array to count each type of pie in inventory
+    var pieTypeCount = [];
+
+    console.log( "Pie Types:", pieTypes );
+
+    // For each type of pie
+    for( var i = 0; i < pieTypes.length; i++ ) {
+
+      // Add an object to the pieTypeCount array { pieType: Number }
+      pieTypeCount[pieTypes[i]] = countItemInObject( inventory, "pie", pieTypes[i] );
+
+    }
+
+    // If the count of each pie type is less than or equal to zero
+    if( pieTypeCount[fruitType] <= 0 ) {
+
+      // Alert the user they don't have enough inventory to sell
+      alert( "You cannot sell what you do not have." );
+
+      // Prevent the user from selling inventory they do not have
+      return false;
+
+    }
+
+  } );
 }); //doc ready
 // $('<h2 />')
 // variable.html(string)
