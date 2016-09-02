@@ -17,6 +17,12 @@
     <!-- Custom CSS -->
     <link href="styles/style.css" rel="stylesheet">
 
+    <!-- jQuery -->
+    <script src="vendors/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="vendors/bootstrap.min.js"></script>
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -41,7 +47,7 @@
               </button>
           </div>
           <!-- Collect the nav links, forms, and other content for toggling -->
-          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <div class="collapse navbar-collapse" id="total-cash">
               <ul class="nav navbar-nav">
                   <li>
                       <a href="#"><strong>Total Cash: $</strong></a>
@@ -58,9 +64,10 @@
         <!-- Jumbotron Header -->
         <header class="jumbotron spacer">
             <h1>Irrational Market</h1>
+            <div class="inheader">
             <p>Buy low, sell pi!</p>
-            <p><a class="btn btn-primary btn-large">Start Simulation</a>
-            </p>
+          <p><a class="btn btn-primary btn-large">Start Simulation</a></p>
+        </div>
         </header>
 
         <hr>
@@ -77,22 +84,22 @@
         <div class="row text-center">
 
             <div class="col-md-3 col-sm-6 feature">
-                <div class="thumbnail">
+                <div class="thumbnail" id="apple">
                     <img src="styles/images/apple pi.jpg" alt="">
                     <div class="caption">
                         <h3>Apple Pie</h3>
-                        <p>Current Market Price:</p>
-                        <p>Average Purchase Price:</p>
-                        <p>Amount on Hand:</p>
+                        <p>Current Market Price: <span id="apple-market"></span></p>
+                        <p>Average Purchase Price: <span id="apple-average"></span></p></p>
+                        <p>Amount on Hand:  <span id="apple-amount"></span></p></p>
                         <p>
-                            <a href="#" class="btn btn-primary">Buy Now!</a> <a href="#" class="btn btn-danger">Sell Now!</a>
+                            <a href="#" class="btn btn-primary" class="buy" data-fruit="apple">Buy Now!</a> <a href="#" class="btn btn-danger" class="sell" data-fruit="apple">Sell Now!</a>
                         </p>
                     </div>
                 </div>
             </div>
 
             <div class="col-md-3 col-sm-6 feature">
-              <div class="thumbnail">
+              <div class="thumbnail" id="lemon">
                     <img src="styles/images/lemon pi.jpg" alt="">
                     <div class="caption">
                         <h3>Lemon Pie</h3>
@@ -100,14 +107,14 @@
                         <p>Average Purchase Price:</p>
                         <p>Amount on Hand:</p>
                         <p>
-                            <a href="#" class="btn btn-primary">Buy Now!</a> <a href="#" class="btn btn-danger">Sell Now!</a>
+                            <a href="#" class="btn btn-primary" class="buy" data-fruit="lemon">Buy Now!</a> <a href="#" class="btn btn-danger" class="sell" data-fruit="lemon">Sell Now!</a>
                         </p>
                     </div>
                 </div>
             </div>
 
             <div class="col-md-3 col-sm-6 feature">
-                <div class="thumbnail">
+                <div class="thumbnail" id="pumpkin">
                     <img src="styles/images/pumpkin pi.jpg" alt="">
                     <div class="caption">
                         <h3>Pumpkin Pie</h3>
@@ -115,22 +122,22 @@
                         <p>Average Purchase Price:</p>
                         <p>Amount on Hand:</p>
                         <p>
-                            <a href="#" class="btn btn-primary">Buy Now!</a> <a href="#" class="btn btn-danger">Sell Now!</a>
+                            <a href="#" class="btn btn-primary" class="buy" data-fruit="pumpkin">Buy Now!</a> <a href="#" class="btn btn-danger" class="sell" data-fruit="pumpkin">Sell Now!</a>
                         </p>
                     </div>
                 </div>
             </div>
 
             <div class="col-md-3 col-sm-6 feature">
-                <div class="thumbnail">
+                <div class="thumbnail" id="strawberry">
                     <img src="styles/images/berry pi.jpg" alt="">
                     <div class="caption">
-                        <h3>Strawberry Rhubarb Pie</h3>
+                        <h3>Strawberry Pie</h3>
                         <p>Current Market Price:</p>
                         <p>Average Purchase Price:</p>
                         <p>Amount on Hand:</p>
                         <p>
-                            <a href="#" class="btn btn-primary">Buy Now!</a> <a href="#" class="btn btn-danger">Sell Now!</a>
+                            <a href="#" class="btn btn-primary" class="buy" data-fruit="berry">Buy Now!</a> <a href="#" class="btn btn-danger" class="sell" data-fruit="berry">Sell Now!</a>
                         </p>
                     </div>
                 </div>
@@ -141,23 +148,9 @@
 
         <hr>
 
-        <!-- Footer -->
-        <footer>
-            <div class="row">
-                <div class="col-lg-12">
-                    <p></p>
-                </div>
-            </div>
-        </footer>
-
     </div>
     <!-- /.container -->
-
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
+    
 
 </body>
 
