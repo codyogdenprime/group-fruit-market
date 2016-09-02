@@ -49,20 +49,39 @@ var fifteenSecondsTimer = function () {
 };
 
 //generate random price for each pie price
-var calculatePrice = function () {
-	return Number( ( (Math.random() * 9.99) + 0.5 ).toFixed(2) );
+var calculateInitialPrice = function () {
+	var currentPrice = Number( ( (Math.random() * 9.99) + 0.5 ).toFixed(2) );
+  if ( currentPrice > 9.99 || currentPrice < 0.5 || currentPrice === undefined ) {
+    for (var i = 0; i < market[i].length; i++) {
+      market[i].price = currentPrice;
+      return true;
 };
 
-var randomNum = function () {
-	var price = calculatePrice();
-	if ( price > 9.99 || price < 0.5 || price === undefined ) {
-		randomNum();
-	} else {
-		return price;
-	}
-	for (var i = 0; i < market.length; i++) {
-		market[i].price = price;
-	}
+// Get New Price Functio n
+var getNewPrice = function ( ) {
+
+  // Get a new price every time we run the function
+  var newPrice = Number( ( (Math.random() * 9.99) + 0.5 ).toFixed(2) );
+
+  // Find the absolute value of the price
+  var abs = Math.abs( newPrice - currentPrice );
+
+  // Check that new price absolute value is within 50 cents and meets
+  // market price constraints
+  if( abs <= .5 && newPrice <= 9.99 && newPrice >= 0 ) {
+
+  	console.log( "New Price:", newPrice );
+
+  	// Send the price back to where it was called as a number
+  	return newPrice;
+
+  // If the number does not work, let us try again! Tally ho!
+  } else {
+
+  	// The function will recursively call itself and run again
+  	return getNewPrice();
+
+  }
 };
 
 var start = function () {
