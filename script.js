@@ -1,16 +1,22 @@
 var walletFunc = function () {
-	var totalFunds = 100;
-	this.add = function ( num ) {
-		totalFunds = Number( totalFunds + num );
-		return totalFunds;
-	};
-	this.sub = function ( num ) {
-		totalFunds = Number ( totalFunds - num );
-		return totalFunds;
-	};
-	this.total = function () {
-		return totalFunds;
-	};
+  var totalFunds = 100;
+  this.add = function ( num ) {
+    totalFunds = Number( totalFunds + num );
+    $("#wallet-total").html( totalFunds.toFixed(2) );
+    return totalFunds;
+  };
+  this.sub = function ( num ) {
+    if( Number( totalFunds - num ) >= 0 ) {
+      totalFunds = Number ( totalFunds - num );
+      $("#wallet-total").html( totalFunds.toFixed(2) );
+      return totalFunds;
+    } else {
+      return false;
+    }
+  };
+  this.total = function () {
+    return totalFunds.toFixed(2);
+  };
 };
 
 var wallet = new walletFunc();
