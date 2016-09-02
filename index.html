@@ -1,15 +1,156 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8" />
-		<title>Pi Group Fruit Project</title>
-		<link href="style.css" rel="stylesheet" />
-		<script src="vendors/jquery.min.js"></script>
-		<script src="script.js"></script>
-	</head>
-	<body>
-	<div id="outputDiv">
 
-	</div>
-	</body>
+<html>
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>It's a Pi Market!</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="styles/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="styles/style.css" rel="stylesheet">
+
+    <!-- jQuery -->
+    <script src="vendors/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="vendors/bootstrap.min.js"></script>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+              </button>
+          </div>
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse" id="total-cash">
+              <ul class="nav navbar-nav">
+                  <li>
+                      <a href="#"><strong>Total Cash: $</strong></a>
+                  </li>
+              </ul>
+          </div>
+          <!-- /.navbar-collapse -->
+      </div>
+      <!-- /.container -->
+  </nav>
+
+    <div class="container">
+
+        <!-- Jumbotron Header -->
+        <header class="jumbotron spacer">
+            <h1>Irrational Market</h1>
+            <div class="inheader">
+            <p>Buy low, sell pi!</p>
+          <p><a class="btn btn-primary btn-large">Start Simulation</a></p>
+        </div>
+        </header>
+
+        <hr>
+
+        <!-- Title -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h3>Our Products</h3>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <!-- Page Features -->
+        <div class="row text-center">
+
+            <div class="col-md-3 col-sm-6 feature">
+                <div class="thumbnail" id="apple">
+                    <img src="styles/images/apple pi.jpg" alt="">
+                    <div class="caption">
+                        <h3>Apple Pie</h3>
+                        <p>Current Market Price: <span id="apple-market"></span></p>
+                        <p>Average Purchase Price: <span id="apple-average"></span></p></p>
+                        <p>Amount on Hand:  <span id="apple-amount"></span></p></p>
+                        <p>
+                            <a href="#" class="btn btn-primary" class="buy" data-fruit="apple">Buy Now!</a> <a href="#" class="btn btn-danger" class="sell" data-fruit="apple">Sell Now!</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-6 feature">
+              <div class="thumbnail" id="lemon">
+                    <img src="styles/images/lemon pi.jpg" alt="">
+                    <div class="caption">
+                        <h3>Lemon Pie</h3>
+                        <p>Current Market Price:</p>
+                        <p>Average Purchase Price:</p>
+                        <p>Amount on Hand:</p>
+                        <p>
+                            <a href="#" class="btn btn-primary" class="buy" data-fruit="lemon">Buy Now!</a> <a href="#" class="btn btn-danger" class="sell" data-fruit="lemon">Sell Now!</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-6 feature">
+                <div class="thumbnail" id="pumpkin">
+                    <img src="styles/images/pumpkin pi.jpg" alt="">
+                    <div class="caption">
+                        <h3>Pumpkin Pie</h3>
+                        <p>Current Market Price:</p>
+                        <p>Average Purchase Price:</p>
+                        <p>Amount on Hand:</p>
+                        <p>
+                            <a href="#" class="btn btn-primary" class="buy" data-fruit="pumpkin">Buy Now!</a> <a href="#" class="btn btn-danger" class="sell" data-fruit="pumpkin">Sell Now!</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-6 feature">
+                <div class="thumbnail" id="strawberry">
+                    <img src="styles/images/berry pi.jpg" alt="">
+                    <div class="caption">
+                        <h3>Strawberry Pie</h3>
+                        <p>Current Market Price:</p>
+                        <p>Average Purchase Price:</p>
+                        <p>Amount on Hand:</p>
+                        <p>
+                            <a href="#" class="btn btn-primary" class="buy" data-fruit="berry">Buy Now!</a> <a href="#" class="btn btn-danger" class="sell" data-fruit="berry">Sell Now!</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- /.row -->
+
+        <hr>
+
+    </div>
+    <!-- /.container -->
+
+
+</body>
 </html>
