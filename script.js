@@ -80,11 +80,18 @@ var start = function () {
 var sellOff = function () {
 	if (running === true) {
 		//update market close prices
-	} else {
+		otherVariable
+		for (var i = 0; i < market.length; i++) {
+			if otherVariable.pie ==market[i].pie{
+				totalFunds+= market[i].price
+
+			}//if
+		}//for loop
+
 		//alert shopper the market is closed
 		//empty pies from bag
 		//compare money spent on pies to ending market price on pies
-	}
+
 };
 
 
