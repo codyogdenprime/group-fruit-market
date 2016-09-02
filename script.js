@@ -52,58 +52,55 @@ var fiveMinuteTimer = function () {
 // Fifteen seconds timer function
 // Run this function every fifteen seconds
 var fifteenSecondsTimer = function () {
+  console.log( "fifteen seconds start");
 	// If the program is running is true
 	if( programStatus === true ) {
 		// Set a time out to run Change Price again
-		setTimeout( changePrice(), 15000 );
+		setTimeout( updatePrices, 15000 );
 	}
 };
 
-//generate random price for each pie price
-var calculateInitialPrice = function () {
-	var currentPrice = Number( ( (Math.random() * 9.99) + 0.5 ).toFixed(2) );
-  if ( currentPrice > 9.99 || currentPrice < 0.5 || currentPrice === undefined ) {
-    for (var i = 0; i < market[i].length; i++) {
-      market[i].price = currentPrice;
-      console.log( "Current Market Price:", market[i].price );
-      console.log( "New Market Price:", currentPrice );
-      return true;
-} } };
+// Get New Price Function
+var getNewPrice = function ( fruitObj ) {
 
-// Get New Price Functio n
-var getNewPrice = function ( ) {
-
+  var currentPrice = Number( fruitObj.price );
+  
   // Get a new price every time we run the function
   var newPrice = Number( ( (Math.random() * 9.99) + 0.5 ).toFixed(2) );
-
+  
   // Find the absolute value of the price
   var abs = Math.abs( newPrice - currentPrice );
-
-  // Check that new price absolute value is within 50 cents and meets
-  // market price constraints
-  if( abs <= 0.5 && newPrice <= 9.99 && newPrice >= 0 ) {
-
-  	console.log( "New Price:", newPrice );
-
-  	// Send the price back to where it was called as a number
-  	return newPrice;
-
-  // If the number does not work, let us try again! Tally ho!
+  
+  // IF
+  // the absolute value of the price is less than or equal to .5
+  // AND IF
+  // the newPrice is less than or equal to max price (9.99)
+  // AND IF
+  // the newPrice is greater than or equal to 0
+  if( abs <= 0.5 && newPrice <= 9.99 && newPrice >= 0.5 ) {
+    
+    // console.log( "New Price:", newPrice );
+    
+    // Send the price back to where it was called as a number
+    return newPrice;
+  
+  // If the number does not work, let us try again! Tally ho! 
   } else {
-
-  	// The function will recursively call itself and run again
-  	return getNewPrice();
-
+    
+    // The function will recursively call itself and run again
+    // Essentially, we want to force this function to give a real answer
+    return getNewPrice( fruitObj );
+    
   }
 };
 
 var runProgram = function () {
 
-  fiveMinuteTimer();
+  //fiveMinuteTimer();
 
   fifteenSecondsTimer();
 
-  calculateInitialPrice();
+  //calculateInitialPrice();
 
 };
 
@@ -127,6 +124,43 @@ var getAvgOfInvItem = function ( pieType ) {
   return Number( total / count );
 };
 
+var updatePrices = function () {
+
+  // For every fruit in the market
+  for ( var i = 0; i < market.length; i++ ) {
+
+    // Get a new price 
+    var newPrice = getNewPrice( market[i] );
+
+    // If the new price data type is a number
+    if( typeof newPrice === "number" ) {
+
+      // Update the price for that paritcular fruit
+      market[i].price = newPrice;
+
+      // Add the new Price to the DOM
+
+      $("#" + market[i].pie + "-price").html( newPrice );
+
+    } else {
+
+      // If all else fails, just error out
+      console.error( "Something went wrong. New price is not a number.", newPrice );
+
+    }
+
+  }
+
+  fifteenSecondsTimer();
+
+};
+
+// Count the instances of a specific value in a key in a bunch of objects inside an array
+var countItemInObject = function ( arr, key, search ) {
+  return arr.filter(function( obj ){
+    return obj[key] === search;
+  }).length;
+};
 
 
 // var sellOff = function () {
@@ -153,7 +187,9 @@ $(document).ready(function(){
     console.log( "Start Button Clicked" );
 
     runProgram();
-  });
+    });
+
+  updatePrices(); // Will run on Doc ready!
 
   // Whenever a button with class .buy is clicked
   $("button.buy").on( "click", function () {
@@ -161,8 +197,13 @@ $(document).ready(function(){
     // Get the fruit type from the element's data
     var fruitType = $( this ).data("fruit");
 
+
     // For every item in the market
     for( var i = 0; i < market.length; i++ ) {
+
+
+
+      
 
       // If the market fruit matches the clicked fruit
       if( market[i].pie === fruitType ) {
@@ -190,6 +231,22 @@ $(document).ready(function(){
         }
 
       }
+
+      var avgPrice = getAvgOfInvItem( market[i].pie ).toLocaleString( 'en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 } );
+
+      if( !isNaN( avgPrice ) ) {
+
+        $("#" + market[i].pie + "-average").html( avgPrice );
+
+      } else {
+
+        $("#" + market[i].pie + "-average").html( "--" );
+
+      }
+
+      
+
+      $("#" + market[i].pie + "-count").html( countItemInObject( inventory, "pie", market[i].pie ).toLocaleString( 'en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 } ) );
 
     }
 
